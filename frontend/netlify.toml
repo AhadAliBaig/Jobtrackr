@@ -1,8 +1,7 @@
 [build]
-  publish = "dist/markhor-frontend"
+  publish = "dist/markhor-frontend/browser"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
