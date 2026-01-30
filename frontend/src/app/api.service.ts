@@ -37,7 +37,7 @@ export interface GuideResource {
   linkUrl: string; 
 }
 
-const BACKEND_URL = 'http://localhost:3000';
+const BACKEND_URL = 'https://jobtrackr-vikn.onrender.com';
 
 @Injectable({
   providedIn: 'root'
