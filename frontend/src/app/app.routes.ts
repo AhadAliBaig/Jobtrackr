@@ -8,20 +8,21 @@ import { BoardComponent } from './board/board';
 import { ResourcesComponent } from './resources/resources';
 import { UpdatesComponent } from './updates/updates';
 import { AnalysisComponent } from './analysis/analysis';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent }, // 1. Login Page
   
-  // App Pages
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'add-job', component: JobFormComponent },
-  { path: 'edit-job/:id', component: JobFormComponent },
-  { path: 'board', component: BoardComponent },
-  { path: 'cover-letter', component: CoverLetterComponent },
-  { path: 'resources', component: ResourcesComponent },
-  { path: 'updates', component: UpdatesComponent },
-  { path: 'analysis', component: AnalysisComponent },
-  { path: 'profile', component: ProfileComponent },
+  // Protected App Pages (require login)
+  { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
+  { path: 'add-job', component: JobFormComponent, canActivate: [authGuard] },
+  { path: 'edit-job/:id', component: JobFormComponent, canActivate: [authGuard] },
+  { path: 'board', component: BoardComponent, canActivate: [authGuard] },
+  { path: 'cover-letter', component: CoverLetterComponent, canActivate: [authGuard] },
+  { path: 'resources', component: ResourcesComponent, canActivate: [authGuard] },
+  { path: 'updates', component: UpdatesComponent, canActivate: [authGuard] },
+  { path: 'analysis', component: AnalysisComponent, canActivate: [authGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' } 
 ];
